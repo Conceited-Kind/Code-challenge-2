@@ -8,9 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server": "json-server --watch db.json --port 8001",
-    "start:lambda": "netlify-lambda serve functions",
-    "build:lambda": "netlify-lambda build functions"
+    "server": "json-server --watch db.json --port 8001"
   },
   "dependencies": {
     "emoji-mart": "^5.6.0",
