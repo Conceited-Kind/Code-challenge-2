@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const classes = ["Support", "Medic", "Assault", "Defender", "Captain", "Witch"];
