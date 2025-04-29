@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import BotCard from './BotCard';
 
-function BotCollection({ initialBots, onAdd, onSelect, filters, sortBy }) {
+function BotCollection({ onAdd, onSelect, filters, sortBy }) {
   const [bots, setBots] = useState([]);
 
   useEffect(() => {
