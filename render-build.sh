@@ -15,3 +15,5 @@ if [ ! -f "node_modules/.bin/json-server" ]; then
 fi
 
 echo "---- Build Completed Successfully ----"
+
+npm ci --omit=dev
