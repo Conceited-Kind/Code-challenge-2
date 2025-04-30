@@ -13,11 +13,9 @@ function BotCard({ bot, onAdd, onDischarge, onClick, showAddButton }) {
 
   return (
     <div className="bot-card" onClick={onClick}>
-      {onDischarge && (
         <div className="discharge-btn" onClick={handleDischarge}>
           ✕
         </div>
-      )}
       <img src={bot.avatar_url} alt={bot.name} className="bot-avatar" />
       <div className="bot-info">
         <h3>{bot.name}</h3>

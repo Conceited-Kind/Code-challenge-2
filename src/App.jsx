@@ -12,23 +12,12 @@ function App() {
   const [selectedBot, setSelectedBot] = useState(null);
   const [filters, setFilters] = useState([]);
   const [currentSort, setCurrentSort] = useState('');
-  const [error, setError] = useState(null);
-
-  const API_URL = import.meta.env.VITE_API_URL || 'https://bot-battlr-api-1gs5.onrender.com/bots';
 
   useEffect(() => {
-    fetch(API_URL) 
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
-      })
+    fetch('http://localhost:8001/bots')
+      .then(res => res.json())
       .then(data => setBots(data))
-      .catch(err => {
-        console.error("Error fetching bots:", err);
-        setError(err.message);
-      });
+      .catch(err => console.error("Error fetching bots:", err));
   }, []);
 
   const addToArmy = (bot) => {
@@ -47,13 +36,10 @@ function App() {
   };
 
   const dischargeBot = (bot) => {
-    fetch(`${API_URL}/${bot.id}`, { 
+    fetch(`http://localhost:8001/bots/${bot.id}`, {
       method: 'DELETE'
     })
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
+    .then(() => {
         setArmy(army.filter(b => b.id !== bot.id));
         setBots(bots.filter(b => b.id !== bot.id));
       })
@@ -75,21 +61,6 @@ function App() {
   const handleBack = () => {
     setSelectedBot(null);
   };
-
-  if (error) {
-    return (
-      <div className="app">
-        <header>
-          <h1>Bot Battlr</h1>
-          <p>Build your ultimate bot army!</p>
-        </header>
-        <div className="error">
-          <h2>Error</h2>
-          <p>Failed to load bots: {error}</p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="app">
