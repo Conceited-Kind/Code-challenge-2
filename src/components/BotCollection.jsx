@@ -6,8 +6,14 @@ function BotCollection({ onAdd, onSelect, filters, sortBy }) {
 
   useEffect(() => {
     fetch(process.env.REACT_APP_API_URL || '/api/bots')
-      .then((res) => res.json())
-      .then((data) => setBots(data));
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => setBots(data))
+      .catch(err => console.error("Error fetching bots:", err));
   }, []);
 
   const filteredBots = filters.length > 0

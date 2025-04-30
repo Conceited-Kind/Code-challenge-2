@@ -15,7 +15,12 @@ function App() {
 
   useEffect(() => {
     fetch(process.env.REACT_APP_API_URL || '/api/bots')
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        return res.json();
+      })
       .then(data => setBots(data))
       .catch(err => console.error("Error fetching bots:", err));
   }, []);
@@ -39,7 +44,10 @@ function App() {
     fetch(`${process.env.REACT_APP_API_URL || '/api/bots'}/${bot.id}`, {
       method: 'DELETE'
     })
-    .then(() => {
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
       setArmy(army.filter(b => b.id !== bot.id));
       setBots(bots.filter(b => b.id !== bot.id));
     })
