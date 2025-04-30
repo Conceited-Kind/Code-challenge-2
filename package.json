@@ -2,15 +2,15 @@
   "name": "bot-battlr",
   "private": true,
   "version": "0.0.0",
-  "type": "commonjs",
-  "main": "server.js",
+  "type": "module",
+  "main": "./server.js",
   "engines": {
       "node": "18.x",
        "npm": "9.x"
   },
   "scripts": {
     "dev": "vite",
-    "build": "./render-build.sh",
+    "build": "npm install",
     "build:prod": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
