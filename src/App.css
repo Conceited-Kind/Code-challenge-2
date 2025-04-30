@@ -1,221 +1,221 @@
 /* Base Styles */
 :root {
-  --primary: #6c5ce7;
-  --secondary: #a29bfe;
-  --dark: #2d3436;
-  --light: #f5f6fa;
-  --danger: #ff7675;
-  --success: #00b894;
-  --army-bg: #ffeaa7;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: var(--light);
-  color: var(--dark);
-}
-
-.app {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header Styles */
-header {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  color: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  text-align: center;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* Bot Army Section */
-.your-bot-army {
-  background-color: var(--army-bg);
-  padding: 1.5rem;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.your-bot-army h2 {
-  color: var(--dark);
-  border-bottom: 2px solid var(--primary);
-  padding-bottom: 0.5rem;
-  margin-top: 0;
-}
-
-/* Bot Collection Grid */
-.bot-collection {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-  padding: 1rem 0;
-}
-
-/* Bot Card Styles */
-.bot-card {
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.bot-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.bot-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
-}
-
-.bot-card h3 {
-  margin: 0.8rem 1rem 0;
-  color: var(--primary);
-}
-
-.bot-card p {
-  margin: 0.5rem 1rem;
-  color: #666;
-  font-size: 0.9rem;
-  min-height: 40px;
-}
-
-.bot-stats {
-  display: flex;
-  justify-content: space-around;
-  padding: 0.8rem;
-  background: #f8f9fa;
-  margin: 0.5rem 1rem;
-  border-radius: 5px;
-}
-
-.bot-stats span {
-  font-weight: bold;
-  color: var(--dark);
-}
-
-/* Button Styles */
-button {
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  padding: 0.6rem 1rem;
-  margin: 0.5rem 1rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.2s;
-  width: calc(100% - 2rem);
-}
-
-button:hover {
-  background-color: var(--secondary);
-  transform: translateY(-2px);
-}
-
-.discharge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: var(--danger);
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  margin: 0;
-  padding: 0;
-}
-
-/* Empty State */
-.empty-state {
-  text-align: center;
-  padding: 2rem;
-  color: #666;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .bot-collection {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    --primary: #6c5ce7;
+    --secondary: #a29bfe;
+    --dark: #2d3436;
+    --light: #f5f6fa;
+    --danger: #ff7675;
+    --success: #00b894;
+    --army-bg: #ffeaa7;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--light);
+    color: var(--dark);
+  }
+  
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header Styles */
+  header {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
   
   header h1 {
-    font-size: 2rem;
+    margin: 0;
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   }
-}
-
-/* Animation for bot enlistment */
-@keyframes enlist {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-  100% { transform: scale(1); }
-}
-
-.enlisted {
-  animation: enlist 0.5s ease;
-}
-
-/* Bot Specs Styles */
-.bot-specs {
-  background: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-}
-
-.bot-details {
-  text-align: center;
-}
-
-.bot-details img {
-  width: 300px;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-/* Filter/Sort Bar Styles */
-.sort-bar, .filter-bar {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.sort-bar button, .filter-bar button {
-  margin: 0;
-  width: auto;
-  padding: 0.5rem 1rem;
-}
-
-.sort-bar span, .filter-bar span {
-  font-weight: 600;
-  margin-right: 0.5rem;
-}
+  
+  /* Bot Army Section */
+  .your-bot-army {
+    background-color: var(--army-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .your-bot-army h2 {
+    color: var(--dark);
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+  }
+  
+  /* Bot Collection Grid */
+  .bot-collection {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  /* Bot Card Styles */
+  .bot-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .bot-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .bot-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .bot-card h3 {
+    margin: 0.8rem 1rem 0;
+    color: var(--primary);
+  }
+  
+  .bot-card p {
+    margin: 0.5rem 1rem;
+    color: #666;
+    font-size: 0.9rem;
+    min-height: 40px;
+  }
+  
+  .bot-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 0.8rem;
+    background: #f8f9fa;
+    margin: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+  .bot-stats span {
+    font-weight: bold;
+    color: var(--dark);
+  }
+  
+  /* Button Styles */
+  button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.6rem 1rem;
+    margin: 0.5rem 1rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s;
+    width: calc(100% - 2rem);
+  }
+  
+  button:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+  }
+  
+  .discharge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--danger);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Empty State */
+  .empty-state {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .bot-collection {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    header h1 {
+      font-size: 2rem;
+    }
+  }
+  
+  /* Animation for bot enlistment */
+  @keyframes enlist {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .enlisted {
+    animation: enlist 0.5s ease;
+  }
+  
+  /* Bot Specs Styles */
+  .bot-specs {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .bot-details {
+    text-align: center;
+  }
+  
+  .bot-details img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Filter/Sort Bar Styles */
+  .sort-bar, .filter-bar {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  
+  .sort-bar button, .filter-bar button {
+    margin: 0;
+    width: auto;
+    padding: 0.5rem 1rem;
+  }
+  
+  .sort-bar span, .filter-bar span {
+    font-weight: 600;
+    margin-right: 0.5rem;
+  }

@@ -11,6 +11,7 @@
   "scripts": {
     "dev": "vite",
     "build": "./render-build.sh",
+    "build:prod": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "server": "node server.js",
@@ -21,7 +22,8 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^7.5.1"
+    "react-router-dom": "^7.5.1",
+    "json-server": "^0.17.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
