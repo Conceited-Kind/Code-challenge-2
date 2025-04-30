@@ -1,19 +1,27 @@
 const path = require('path');
-  const fs = require('fs');
-  const jsonServer = require('json-server');
-  const server = jsonServer.create();
-  const dbPath = path.join(__dirname, 'db.json');
+const fs = require('fs');
+const jsonServer = require('json-server');
 
-  console.log(`Looking for db.json at: ${dbPath}`);
-  if (!fs.existsSync(dbPath)) {
-    console.error(`db.json not found at ${dbPath}`);
-    throw new Error('db.json not found');
-  }
+const server = jsonServer.create();
+const dbPath = path.join(__dirname, 'db.json');
 
-  const router = jsonServer.router(dbPath);
-  const middlewares = jsonServer.defaults();
+console.log(`Looking for db.json at: ${dbPath}`);
+if (!fs.existsSync(dbPath)) {
+  console.error(`db.json not found at ${dbPath}`);
+  throw new Error('db.json not found');
+}
 
-  server.use(middlewares);
-  server.use(router);
+let router;
+try {
+  router = jsonServer.router(dbPath);
+} catch (error) {
+  console.error('Error loading db.json:', error.message);
+  throw error;
+}
 
-  module.exports = server;
+const middlewares = jsonServer.defaults();
+
+server.use(middlewares);
+server.use(router);
+
+module.exports = server;
