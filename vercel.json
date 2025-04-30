@@ -21,14 +21,16 @@
         "src": "/api/bots$",
         "dest": "/api/server.js",
         "headers": {
-          "X-Debug-Route": "API Base Route"
+          "X-Debug-Route": "API Base Route",
+          "Cache-Control": "no-cache"
         }
       },
       {
         "src": "/api/bots/(.+)",
         "dest": "/api/server.js",
         "headers": {
-          "X-Debug-Route": "API Sub Route"
+          "X-Debug-Route": "API Sub Route",
+          "Cache-Control": "no-cache"
         }
       },
       {

@@ -3,11 +3,11 @@ const fs = require('fs');
 const jsonServer = require('json-server');
 
 const server = jsonServer.create();
-const dbPath = path.join(__dirname, 'db.json');
+const dbPath = 'db.json'; 
 
-console.log(`Looking for db.json at: ${dbPath}`);
+console.log(`Looking for db.json at: ${path.resolve(dbPath)}`);
 if (!fs.existsSync(dbPath)) {
-  console.error(`db.json not found at ${dbPath}`);
+  console.error(`db.json not found at ${path.resolve(dbPath)}`);
   throw new Error('db.json not found');
 }
 
