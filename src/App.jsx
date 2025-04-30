@@ -14,7 +14,7 @@ function App() {
   const [currentSort, setCurrentSort] = useState('');
 
   useEffect(() => {
-    fetch('https://bot-battlr-api.onrender.com/api/bots') 
+    fetch('https://bot-battlr-api-1gs5.onrender.com') 
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -41,7 +41,7 @@ function App() {
   };
 
   const dischargeBot = (bot) => {
-    fetch(`https://bot-battlr-api.onrender.com/api/bots/${bot.id}`, { 
+    fetch(`https://https://bot-battlr-api-1gs5.onrender.com${bot.id}`, { 
       method: 'DELETE'
     })
       .then(res => {
