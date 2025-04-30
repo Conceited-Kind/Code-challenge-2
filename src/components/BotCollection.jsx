@@ -1,21 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import BotCard from './BotCard';
 
-function BotCollection({ onAdd, onSelect, filters, sortBy }) {
-  const [bots, setBots] = useState([]);
-
-  useEffect(() => {
-    fetch('https://bot-battlr-api-1gs5.onrender.com') 
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! Status: ${res.status}`);
-        }
-        return res.json();
-      })
-      .then((data) => setBots(data))
-      .catch(err => console.error("Error fetching bots:", err));
-  }, []);
-
+function BotCollection({ bots, onAdd, onSelect, filters, sortBy }) {
   const filteredBots = filters.length > 0
     ? bots.filter((bot) => filters.includes(bot.bot_class))
     : bots;
@@ -33,6 +19,7 @@ function BotCollection({ onAdd, onSelect, filters, sortBy }) {
           bot={bot}
           onAdd={onAdd}
           onClick={() => onSelect(bot)}
+          showAddButton={true} 
         />
       ))}
     </div>

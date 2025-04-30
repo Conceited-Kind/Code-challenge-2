@@ -13,8 +13,10 @@ function App() {
   const [filters, setFilters] = useState([]);
   const [currentSort, setCurrentSort] = useState('');
 
+  const API_URL = import.meta.env.VITE_API_URL || 'https://bot-battlr-api-1gs5.onrender.com';
+
   useEffect(() => {
-    fetch('https://bot-battlr-api-1gs5.onrender.com') 
+    fetch(API_URL) 
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -22,7 +24,9 @@ function App() {
         return res.json();
       })
       .then(data => setBots(data))
-      .catch(err => console.error("Error fetching bots:", err));
+      .catch(err => {
+        console.error("Error fetching bots:", err);
+      });
   }, []);
 
   const addToArmy = (bot) => {
@@ -41,7 +45,7 @@ function App() {
   };
 
   const dischargeBot = (bot) => {
-    fetch(`https://https://bot-battlr-api-1gs5.onrender.com${bot.id}`, { 
+    fetch(`${API_URL}/${bot.id}`, { 
       method: 'DELETE'
     })
       .then(res => {
