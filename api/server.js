@@ -4,6 +4,6 @@ const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
 
 server.use(middlewares);
-server.use('/bots', router); // Route all API requests to /bots
+server.use(router);
 
 module.exports = server;

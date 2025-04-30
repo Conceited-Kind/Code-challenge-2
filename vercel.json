@@ -18,8 +18,18 @@
     ],
     "routes": [
       {
-        "src": "/api/bots/(.*)",
-        "dest": "/api/server.js"
+        "src": "/api/bots$",
+        "dest": "/api/server.js",
+        "headers": {
+          "X-Debug-Route": "API Base Route"
+        }
+      },
+      {
+        "src": "/api/bots/(.+)",
+        "dest": "/api/server.js",
+        "headers": {
+          "X-Debug-Route": "API Sub Route"
+        }
       },
       {
         "src": "/assets/(.+?)\\.(js|JS)$",
