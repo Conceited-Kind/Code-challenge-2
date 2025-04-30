@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import YourBotArmy from './components/YourBotArmy';
 import BotCollection from './components/BotCollection';
@@ -15,7 +14,7 @@ function App() {
   const [currentSort, setCurrentSort] = useState('');
 
   useEffect(() => {
-    fetch('https://bot-battlr-api.onrender.com/api/bots')
+    fetch('https://bot-battlr-api.onrender.com/api/robots') 
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -42,7 +41,7 @@ function App() {
   };
 
   const dischargeBot = (bot) => {
-    fetch(`https://bot-battlr-api.onrender.com/api/bots/${bot.id}`, {
+    fetch(`https://bot-battlr-api.onrender.com/api/robots/${bot.id}`, { 
       method: 'DELETE'
     })
       .then(res => {
