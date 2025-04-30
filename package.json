@@ -2,11 +2,10 @@
   "name": "bot-battlr",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "commonjs",
   "main": "./server.js",
   "engines": {
-      "node": "18.x",
-       "npm": "9.x"
+      "node": "18.x"
   },
   "scripts": {
     "dev": "vite",
