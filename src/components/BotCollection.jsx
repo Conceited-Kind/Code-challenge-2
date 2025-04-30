@@ -5,7 +5,7 @@ function BotCollection({ onAdd, onSelect, filters, sortBy }) {
   const [bots, setBots] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8001/bots')
+    fetch('/api/bots')
       .then((res) => res.json())
       .then((data) => setBots(data));
   }, []);

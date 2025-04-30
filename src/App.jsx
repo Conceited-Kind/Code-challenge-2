@@ -14,7 +14,7 @@ function App() {
   const [currentSort, setCurrentSort] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8001/bots')
+    fetch('/api/bots')
       .then(res => res.json())
       .then(data => setBots(data))
       .catch(err => console.error("Error fetching bots:", err));
@@ -36,7 +36,7 @@ function App() {
   };
 
   const dischargeBot = (bot) => {
-    fetch(`http://localhost:8001/bots/${bot.id}`, {
+    fetch(`/api/bots/${bot.id}`, {
       method: 'DELETE'
     })
     .then(() => {

@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.html",
+        "use": "@vercel/static-build",
+        "config": {
+          "distDir": "dist"
+        }
+      },
+      {
+        "src": "api/server.js",
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["db.json"]
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/bots/(.*)",
+        "dest": "/api/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/index.html"
+      }
+    ]
+  }
