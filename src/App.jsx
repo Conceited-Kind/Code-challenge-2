@@ -14,7 +14,7 @@ function App() {
   const [currentSort, setCurrentSort] = useState('');
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL || '/api/bots')
+    fetch('https://bot-battlr-api.onrender.com/api/bots')
       .then(res => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);
@@ -41,17 +41,17 @@ function App() {
   };
 
   const dischargeBot = (bot) => {
-    fetch(`${process.env.REACT_APP_API_URL || '/api/bots'}/${bot.id}`, {
+    fetch(`https://bot-battlr-api.onrender.com/api/bots/${bot.id}`, {
       method: 'DELETE'
     })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
-      setArmy(army.filter(b => b.id !== bot.id));
-      setBots(bots.filter(b => b.id !== bot.id));
-    })
-    .catch(err => console.error("Error deleting bot:", err));
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        setArmy(army.filter(b => b.id !== bot.id));
+        setBots(bots.filter(b => b.id !== bot.id));
+      })
+      .catch(err => console.error("Error deleting bot:", err));
   };
 
   const handleFilter = (cls) => {

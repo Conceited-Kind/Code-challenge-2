@@ -5,7 +5,7 @@ function BotCollection({ onAdd, onSelect, filters, sortBy }) {
   const [bots, setBots] = useState([]);
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_API_URL || '/api/bots')
+    fetch('https://bot-battlr-api.onrender.com/api/bots')
       .then((res) => {
         if (!res.ok) {
           throw new Error(`HTTP error! Status: ${res.status}`);

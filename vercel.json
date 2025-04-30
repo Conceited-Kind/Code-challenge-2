@@ -7,32 +7,9 @@
         "config": {
           "distDir": "dist"
         }
-      },
-      {
-        "src": "api/server.js",
-        "use": "@vercel/node",
-        "config": {
-          "includeFiles": ["db.json"]
-        }
       }
     ],
     "routes": [
-      {
-        "src": "/api/bots$",
-        "dest": "/api/server.js",
-        "headers": {
-          "X-Debug-Route": "API Base Route",
-          "Cache-Control": "no-cache"
-        }
-      },
-      {
-        "src": "/api/bots/(.+)",
-        "dest": "/api/server.js",
-        "headers": {
-          "X-Debug-Route": "API Sub Route",
-          "Cache-Control": "no-cache"
-        }
-      },
       {
         "src": "/assets/(.+?)\\.(js|JS)$",
         "dest": "/dist/assets/$1.js",
