@@ -12,6 +12,7 @@ function App() {
   const [selectedBot, setSelectedBot] = useState(null);
   const [filters, setFilters] = useState([]);
   const [currentSort, setCurrentSort] = useState('');
+  const [error, setError] = useState(null);
 
   const API_URL = import.meta.env.VITE_API_URL || 'https://bot-battlr-api-1gs5.onrender.com/bots';
 
@@ -23,9 +24,10 @@ function App() {
         }
         return res.json();
       })
-      .then(data => setBots(data)) // No need for data.bots since /bots returns the array directly
+      .then(data => setBots(data))
       .catch(err => {
         console.error("Error fetching bots:", err);
+        setError(err.message);
       });
   }, []);
 
@@ -73,6 +75,21 @@ function App() {
   const handleBack = () => {
     setSelectedBot(null);
   };
+
+  if (error) {
+    return (
+      <div className="app">
+        <header>
+          <h1>Bot Battlr</h1>
+          <p>Build your ultimate bot army!</p>
+        </header>
+        <div className="error">
+          <h2>Error</h2>
+          <p>Failed to load bots: {error}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="app">
