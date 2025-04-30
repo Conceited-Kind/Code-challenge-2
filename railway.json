@@ -1,0 +1,8 @@
+{
+  "buildCommand": "npm install --omit=dev",
+  "startCommand": "node server.js",
+  "variables": {
+    "PORT": "10000",
+    "NODE_ENV": "production"
+  }
+}
