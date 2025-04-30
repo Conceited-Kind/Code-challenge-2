@@ -3,13 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "commonjs",
-  "main": "./server.js",
+  "main": "server.js",
   "engines": {
     "node": "18.x"
   },
   "scripts": {
     "dev": "vite",
-    "build": "npm install",
+    "build": "npm ci --omit=dev",
     "build:prod": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
