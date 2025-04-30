@@ -14,7 +14,7 @@ function App() {
   const [currentSort, setCurrentSort] = useState('');
 
   useEffect(() => {
-    fetch('/api/bots')
+    fetch(process.env.REACT_APP_API_URL || '/api/bots')
       .then(res => res.json())
       .then(data => setBots(data))
       .catch(err => console.error("Error fetching bots:", err));
@@ -36,7 +36,7 @@ function App() {
   };
 
   const dischargeBot = (bot) => {
-    fetch(`/api/bots/${bot.id}`, {
+    fetch(`${process.env.REACT_APP_API_URL || '/api/bots'}/${bot.id}`, {
       method: 'DELETE'
     })
     .then(() => {
