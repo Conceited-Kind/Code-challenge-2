@@ -13,7 +13,7 @@ function App() {
   const [filters, setFilters] = useState([]);
   const [currentSort, setCurrentSort] = useState('');
 
-  const API_URL = import.meta.env.VITE_API_URL || 'https://bot-battlr-api-1gs5.onrender.com';
+  const API_URL = import.meta.env.VITE_API_URL || 'https://bot-battlr-api-1gs5.onrender.com/bots';
 
   useEffect(() => {
     fetch(API_URL) 
@@ -23,7 +23,7 @@ function App() {
         }
         return res.json();
       })
-      .then(data => setBots(data))
+      .then(data => setBots(data)) // No need for data.bots since /bots returns the array directly
       .catch(err => {
         console.error("Error fetching bots:", err);
       });
